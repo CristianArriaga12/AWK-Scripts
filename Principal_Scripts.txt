@@ -1,0 +1,7 @@
+Experimentacion 1.2
+1.- awk '/Redes/ {print}' ex1.txt >filtra.txt
+2.- awk '{suma=suma+$3} END{print suma}' ex1.txt > suma.txt
+3.- awk '{ if($4<min) min=$4 } END { print min }' ex1.txt > minimo.txt
+4.- awk '{print $3, $4}' ext1.txt > columnas.txt
+5.- awk '/c/ {print}' ex1.txt > filtrac.txt
+

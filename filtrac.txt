@@ -1,0 +1,6 @@
+c	Java	0.191	-7
+c	C++	2.150	-9
+c	Pascal	0.001	0
+c	Eiffel	1.548	2
+c	Perl	0.555	-6
+c	Python	3.456	-3
