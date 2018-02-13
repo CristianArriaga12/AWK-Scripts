@@ -1,0 +1,5 @@
+Experimentacion
+1.- awk '{ if($1=="!") aux = aux + 1} END {print aux}' 1.txt > frases.txt
+2.- awk '{ if($1=="D") aux = aux + 1} END {print aux}' 1.txt > Total_paquetes.txt
+3.- awk '{aux=$2-$3}{$4=aux}{print} END{}' 1.txt > 1_1.txt
+	
