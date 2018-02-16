@@ -4,7 +4,8 @@ Experimentacion
 2.- awk '{ if($1=="D") aux = aux + 1} END {print aux}' 1.txt > Total_paquetes.txt
 ## Leemos todas las lineas que contengan "D" y aumentamos un contador
 3.- awk '{aux=$2-$3}{$1=aux}{print $1} END{}' 1.txt > diferencia.txt
-## Calculamos las diferencias entre los tiempos de las estampas del receptor y de transmisor guardando todas las diferencias en un ## Nuevo archivo llamado diferencia.txt
+## Calculamos las diferencias entre los tiempos de las estampas del receptor y de transmisor guardando todas las diferencias en un
+## Nuevo archivo llamado diferencia.txt
     awk '{if($1<min) min=$1} END{print min}' diferencia.txt > minimo.txt
 ## Leemos las diferencias en el archivo diferencia.txt y buscamos el valor minimo
 4.- awk '{delay=($1+641808)/(8000)}{print delay} END{}' diferencia.txt > delay-end-to-end.txt
