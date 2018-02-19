@@ -1,17 +1,24 @@
 Experimentacion
+
 1.- awk '{ if($1=="!") aux = aux + 1} END {print aux+1}' 1.txt > frases.txt
 ## Leemos todas los renglones y cada vez que hay un "!" saltamos de linea y aumentamos un contador
+
 2.- awk '{ if($1=="D") aux = aux + 1} END {print aux}' 1.txt > Total_paquetes.txt
 ## Leemos todas las lineas que contengan "D" y aumentamos un contador
+
 3.- awk '{aux=$2-$3}{$1=aux}{print $1} END{}' 1.txt > diferencia.txt
 ## Calculamos las diferencias entre los tiempos de las estampas del receptor y de transmisor guardando todas las diferencias en un
 ## Nuevo archivo llamado diferencia.txt
+
     awk '{if($1<min) min=$1} END{print min}' diferencia.txt > minimo.txt
 ## Leemos las diferencias en el archivo diferencia.txt y buscamos el valor minimo
-4.- awk '{delay=($1+641808)/(8000)}{print delay} END{}' diferencia.txt > delay-end-to-end.txt
-## Una vez que encontramos el valor minimo nos disponemos a calcular el retraso de extremo a extremo y la guardamos en un archivo 
-## nuevo llamado delay-end-to-end.txt
-5.- awk '{suma+=$1} END{print suma/NR}' delay-end-to-end.txt > promedio-delay.txt
+
+4.- awk '{SessionT=($1/8000)}{print SessionT} END{}' diferencia.txt > SessionT.txt
+    awk '{delay=($1+641808)/(8000)}{$2=delay}{print} END{}' diferencia.txt > SessionT.txt
+## Una vez que encontramos el valor minimo nos disponemos a calcular tiempo de session y el retraso de extremo a extremo y la
+## guardamos en un archivo nuevo llamado SessionT.txt
+
+5.- awk '{suma+=$2} END{print suma/NR}' SessionT.txt > promedio-delay.txt
 ## Leemos las lineas y lo sumamos en una variable llamada suma finalmente lo dividimos el resultado total de la suma entre el 
 ## numero total de lineas para ello utilizamos la palabra reservada NR(Number Rows) y lo guardamos en un archivo llamado        
 ## promedio-delay.txt
