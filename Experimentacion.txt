@@ -13,8 +13,7 @@ Experimentacion
     awk '{if($1<min) min=$1} END{print min}' diferencia.txt > minimo.txt
 ## Leemos las diferencias en el archivo diferencia.txt y buscamos el valor minimo
 
-4.- awk '{SessionT=($1/8000)}{print SessionT} END{}' diferencia.txt > SessionT.txt
-    awk '{delay=($1+641808)/(8000)}{$2=delay}{print} END{}' diferencia.txt > SessionT.txt
+4.- awk '{SessionT=($3-131912079)/8000}{$1=SessionT}{Delay=(($2-$3)+641808)/8000}{$2=Delay}{print $1,$2} END{}' 1.txt > SessionT.txt
 ## Una vez que encontramos el valor minimo nos disponemos a calcular tiempo de session y el retraso de extremo a extremo y la
 ## guardamos en un archivo nuevo llamado SessionT.txt
 
