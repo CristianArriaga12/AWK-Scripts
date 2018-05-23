@@ -1,0 +1,2 @@
+//extract only the data of type number in the column 8 (RTT)
+awk '/time=/ {sub(/time=/,""); print $8}' turing.dat > turing_rtt.txt 
