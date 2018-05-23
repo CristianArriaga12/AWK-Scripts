@@ -1,0 +1,1 @@
+ ping -c 300 web.mit.edu > mit.dat
