@@ -1,0 +1,7 @@
+load mit_rtt.dat
+plot(mit_rtt,'--*g')
+grid on
+xlabel('# Ping')
+ylabel('RTT')
+title('RTT web.mit.edu')
+print -dpng "RTT_MIT.png"
