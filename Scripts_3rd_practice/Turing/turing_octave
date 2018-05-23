@@ -1,1 +1,6 @@
 load turing_rtt.dat 
+plot(turing_rtt,'--*r')
+xlabel('# Ping')
+ylabel('RTT')
+title('RTT turing.izt.uzm.mx')
+print -dpng ""RTT_turing.png"
