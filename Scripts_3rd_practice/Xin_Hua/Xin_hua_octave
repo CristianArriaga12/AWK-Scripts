@@ -1,0 +1,7 @@
+load xinhua_rtt.dat 
+plot(xinhua_rtt,'--*b')
+grid on 
+xlabel('# Ping')
+ylabel('RTT')
+title('RTT www.xinhuanet.com')
+print -dpng "RTT_xinhua.png"
