@@ -1,0 +1,1 @@
+ping -c 300 turing.izt.uam.mx > turing.dat
