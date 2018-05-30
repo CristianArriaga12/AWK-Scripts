@@ -29,4 +29,12 @@ tiempo  en  segundos,  y  retardo  de  extremo  a  extremo  en segundos.
   
 ## Una vez que encontramos el valor minimo nos disponemos a calcular tiempo de session y el retraso de extremo a extremo y la
 ## guardamos en un archivo nuevo llamado SessionT.txt
+
+5.  script  AWK  que  calcule  el  retardo  promedio  de  extremo  a  extremo  en una  sesión.
+
+  awk '{suma+=$2} END{print suma/NR}' SessionT.txt > promedio-delay.txt
+
+## Leemos las lineas y lo sumamos en una variable llamada suma finalmente lo dividimos el resultado total de la suma entre el 
+## numero total de lineas para ello utilizamos la palabra reservada NR(Number Rows) y lo guardamos en un archivo llamado        
+## promedio-delay.txt
   
