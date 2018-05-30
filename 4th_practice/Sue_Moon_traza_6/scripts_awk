@@ -18,5 +18,15 @@ entre  la  estampa  de tiempo  del  receptor  menos  de  la  del  emisor.
 ## Calculamos las diferencias entre los tiempos de las estampas del receptor y de transmisor guardando todas las diferencias en un
 ## Nuevo archivo llamado Diferencia.txt
 
-4.  Escribir  un  script  AWK  que  reciba  una  traza  como  entrada  y  entregue  un  archivo  con  dos  columnas:  
+  awk '{if($1<min) min=$1} END{print min}' Diferencia.txt > Minimo.txt
+
+## Leemos las diferencias en el archivo diferencia.txt y buscamos el valor minimo
+
+4.  script  AWK  que  reciba  una  traza  como  entrada  y  entregue  un  archivo  con  dos  columnas:  
 tiempo en segundos, y retardo de extremo a extremo en segundos.
+
+  awk '{SessionT=($3-501927541)/8000}{$1=SessionT}{Delay=(($2-$3)-(-1489551))/8000}{$2=Delay}{print $1,$2} END{}' 6.txt > SessionT.txt
+
+## Una vez que encontramos el valor minimo nos disponemos a calcular tiempo de session y el retraso de extremo a extremo y la
+## guardamos en un archivo nuevo llamado SessionT.txt
+
