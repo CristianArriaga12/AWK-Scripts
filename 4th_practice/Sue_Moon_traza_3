@@ -1,0 +1,22 @@
+1. script  AWK  para  contar  el  número  total  de  frases  (talkspurts)  en  unatraza  de  retardo.
+
+  awk '{ if($1=="!") aux = aux + 1} END {print aux+1}' 3.txt > Frases.txt
+
+## Leemos todas los renglones y cada vez que hay un "!" saltamos de linea y aumentamos un contador
+
+2.  Contar  el  número  total  de  paquetes  que  llegaron al  receptor.
+
+  awk '{ if($1=="D") aux = aux + 1} END {print aux}' 3.txt > Total_paquetes.txt
+
+## Leemos todas las lineas que contengan "D" y aumentamos un contador
+
+3.  Escribir  un  script  AWK  para  encontrar  la  diferencia  mínima  
+entre  la  estampa  de tiempo  del  receptor  menos  de  la  del  emisor.
+
+  awk '{aux=$2-$3}{$1=aux}{print $1} END{}' 3.txt > Diferencia.txt
+
+## Calculamos las diferencias entre los tiempos de las estampas del receptor y de transmisor guardando todas las diferencias en un
+## Nuevo archivo llamado Diferencia.txt
+
+4.  Escribir  un  script  AWK  que  reciba  una  traza  como  entrada  y  entregue  un  archivo  con  dos  columnas:  
+tiempo en segundos, y retardo de extremo a extremo en segundos.
