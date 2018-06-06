@@ -54,6 +54,8 @@ octave:2> stem(zoom(:,1), zoom(:,2))
 octave:3> xlabel("Tiempo de Sesion [s]")
 octave:4> ylabel("Retardo de Extremo a Extremo")
 octave:5> title("Round Trip-Time 2 (Zoom a 600 registros)")
+octave:6> print -dpng "RTT_2_2.png"
+
 
 
 
