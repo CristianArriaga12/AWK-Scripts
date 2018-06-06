@@ -13,7 +13,7 @@
 3.  Escribir  un  script  AWK  para  encontrar  la  diferencia  mínima  
 entre  la  estampa  de tiempo  del  receptor  menos  de  la  del  emisor.
 
-awk '/D/ {print}' 3.txt > filtraD.txt
+awk '/D/ {print}' 4.txt > filtraD.txt
   
 ##No nos interesan los espacion de silencio para el analis por lo que nos disponemos a eliminar estos y dejar solo los registros
 ##trasmitidos correctamente
