@@ -13,6 +13,11 @@
 3.  Escribir  un  script  AWK  para  encontrar  la  diferencia  mínima  
 entre  la  estampa  de tiempo  del  receptor  menos  de  la  del  emisor.
 
+awk '/D/ {print}' 6.txt > filtraD.txt
+  
+##No nos interesan los espacion de silencio para el analis por lo que nos disponemos a eliminar estos y dejar solo los registros
+##trasmitidos correctamente
+
   awk '{aux=$2-$3}{$1=aux}{print $1} END{}' 6.txt > Diferencia.txt
 
 ## Calculamos las diferencias entre los tiempos de las estampas del receptor y de transmisor guardando todas las diferencias en un
@@ -25,7 +30,7 @@ entre  la  estampa  de tiempo  del  receptor  menos  de  la  del  emisor.
 4.  script  AWK  que  reciba  una  traza  como  entrada  y  entregue  un  archivo  con  dos  columnas:  
 tiempo en segundos, y retardo de extremo a extremo en segundos.
 
-  awk '{SessionT=($3-501927541)/8000}{$1=SessionT}{Delay=(($2-$3)-(-1489551))/8000}{$2=Delay}{print $1,$2} END{}' 6.txt > SessionT.txt
+  awk '{SessionT=($3-501927541)/8000}{$1=SessionT}{Delay=(($2-$3)-(-1489551))/8000}{$2=Delay}{print $1,$2} END{}' filtraD.txt > SessionT.txt
 
 ## Una vez que encontramos el valor minimo nos disponemos a calcular tiempo de session y el retraso de extremo a extremo y la
 ## guardamos en un archivo nuevo llamado SessionT.txt
@@ -37,3 +42,19 @@ tiempo en segundos, y retardo de extremo a extremo en segundos.
 ## Leemos las lineas y lo sumamos en una variable llamada suma finalmente lo dividimos el resultado total de la suma entre el 
 ## numero total de lineas para ello utilizamos la palabra reservada NR(Number Rows) y lo guardamos en un archivo llamado        
 ## promedio-delay.txt
+
+ctave:1> load SessionT.txt 
+octave:2> plot (SessionT)
+octave:3> xlabel("Tiempo de Sesion [ms]") 
+octave:4> ylabel("Retardo de Extremo a Extremo")
+octave:5> title("Round Trip-Time 6")
+octave:6> print -dpng "RTT6.png"
+
+
+octave:1> load zoom.txt 
+octave:2> stem(zoom(:,1), zoom(:,2))
+octave:3> grid on
+octave:4> xlabel("Tiempo de Sesion [ms]")
+octave:5> ylabel("Retardo de Extremo a Extremo")
+octave:6> title("Roud Trip-Time 6 (3s)")
+octave:7> print -dpng "RTT_6_2.png"
