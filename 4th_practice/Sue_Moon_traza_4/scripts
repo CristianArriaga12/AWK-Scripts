@@ -13,6 +13,11 @@
 3.  Escribir  un  script  AWK  para  encontrar  la  diferencia  mínima  
 entre  la  estampa  de tiempo  del  receptor  menos  de  la  del  emisor.
 
+awk '/D/ {print}' 3.txt > filtraD.txt
+  
+##No nos interesan los espacion de silencio para el analis por lo que nos disponemos a eliminar estos y dejar solo los registros
+##trasmitidos correctamente
+
   awk '{aux=$2-$3}{$1=aux}{print $1} END{}' 4.txt > Diferencia.txt
 
 ## Calculamos las diferencias entre los tiempos de las estampas del receptor y de transmisor guardando todas las diferencias en un
@@ -37,3 +42,20 @@ tiempo en segundos, y retardo de extremo a extremo en segundos.
 ## Leemos las lineas y lo sumamos en una variable llamada suma finalmente lo dividimos el resultado total de la suma entre el 
 ## numero total de lineas para ello utilizamos la palabra reservada NR(Number Rows) y lo guardamos en un archivo llamado        
 ## promedio-delay.txt
+
+octave:1> load SessionT.txt 
+octave:2> plot (SessionT)
+octave:3> xlabel("Tiempo de Sesion [s]") 
+octave:4> ylabel("Retardo de Extremo a Extremo")
+octave:5> title("Round Trip-Time 3")
+octave:6> print -dpng "RTT2.png"
+
+
+octave:1> load zoom.txt 
+octave:2> stem(zoom(:,1), zoom(:,2))
+octave:3> grid on
+octave:4> xlabel("Tiempo de Sesion [ms]")
+octave:5> ylabel("Retardo de Extremo a Extremo")
+octave:6> title("Roud Trip-Time 3 (3s)")
+octave:7> print -dpng "RTT_3_3.png"
+
