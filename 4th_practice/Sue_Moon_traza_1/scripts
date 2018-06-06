@@ -43,12 +43,17 @@ tiempo  en  segundos,  y  retardo  de  extremo  a  extremo  en segundos.
 ## promedio-delay.txt
 
 
-octave:1> stem(SessionT(:,1), SessionT(:,2))
-octave:2> stem(SessionT(1), SessionT(2))
-octave:3> stem(SessionT(:,1), SessionT(:,2))
-octave:4> xlabel ("Tiempo de Sesion [s]")
-octave:5> ylabel ("Retardo de Extremo a Extremo")
-octave:6> title ("Round Trip-Time 1.txt")
-octave:7> print -dpng "RTT1.png"
+octave:1> load SessionT.txt 
+octave:2> plot(SessionT)
+octave:3> xlabel("Tiempo de Sesion [s]") 
+octave:4> ylabel("Retardo de Extremo a Extremo")
+octave:5> title("Round Trip-Time 1")
+octave:6> print -dpng "RTT1.png"
+
+octave:1> load zoom.txt 
+octave:2> stem(zoom(:,1), zoom(:,2))
+octave:3> xlabel("Tiempo de Sesion [s]")
+octave:4> ylabel("Retardo de Extremo a Extremo")
+octave:5> title("Round Trip-Time 2 (Zoom a 600 registros)")
 
   
