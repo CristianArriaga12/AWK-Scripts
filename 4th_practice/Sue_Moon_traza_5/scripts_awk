@@ -30,15 +30,31 @@ awk '/D/ {print}' 5.txt > filtraD.txt
 4.  script  AWK  que  reciba  una  traza  como  entrada  y  entregue  un  archivo  con  dos  columnas:  
 tiempo en segundos, y retardo de extremo a extremo en segundos.
 
-  awk '{SessionT=($3-416127014)/8000}{$1=SessionT}{Delay=(($2-$3)-(945077))/8000}{$2=Delay}{print $1,$2} END{}' 5.txt > SessionT.txt
+  awk '{SessionT=($3-415181937)/8000}{$1=SessionT}{Delay=(($2-$3)-(945077))/8000}{$2=Delay}{print $1,$2} END{}' filtraD.txt > SessionT.txt
 
 ## Una vez que encontramos el valor minimo nos disponemos a calcular tiempo de session y el retraso de extremo a extremo y la
 ## guardamos en un archivo nuevo llamado SessionT.txt
 
 5.  script  AWK  que  calcule  el  retardo  promedio  de  extremo  a  extremo  en una  sesión.
 
-  awk '{suma+=$2} END{print suma/NR}' SessionT.txt > Promedio-delay.txt
+  awk '{SessionT=($3-415181937)/8000}{$1=SessionT}{Delay=(($2-$3)-(945077))/8000}{$2=Delay}{print $1,$2} END{}' filtraD.txt > SessionT.txt
 
 ## Leemos las lineas y lo sumamos en una variable llamada suma finalmente lo dividimos el resultado total de la suma entre el 
 ## numero total de lineas para ello utilizamos la palabra reservada NR(Number Rows) y lo guardamos en un archivo llamado        
 ## promedio-delay.txt
+
+octave:1> load SessionT.txt 
+octave:2> plot (SessionT)
+octave:3> xlabel("Tiempo de Sesion [s]") 
+octave:4> ylabel("Retardo de Extremo a Extremo")
+octave:5> title("Round Trip-Time 5")
+octave:6> print -dpng "RTT5.png"
+
+
+octave:1> load zoom.txt 
+octave:2> stem(zoom(:,1), zoom(:,2))
+octave:3> grid on
+octave:4> xlabel("Tiempo de Sesion [ms]")
+octave:5> ylabel("Retardo de Extremo a Extremo")
+octave:6> title("Roud Trip-Time 5 (6s)")
+octave:7> print -dpng "RTT_5_2.png"
