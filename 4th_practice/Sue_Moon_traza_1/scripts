@@ -41,4 +41,14 @@ tiempo  en  segundos,  y  retardo  de  extremo  a  extremo  en segundos.
 ## Leemos las lineas y lo sumamos en una variable llamada suma finalmente lo dividimos el resultado total de la suma entre el 
 ## numero total de lineas para ello utilizamos la palabra reservada NR(Number Rows) y lo guardamos en un archivo llamado        
 ## promedio-delay.txt
+
+
+octave:1> stem(SessionT(:,1), SessionT(:,2))
+octave:2> stem(SessionT(1), SessionT(2))
+octave:3> stem(SessionT(:,1), SessionT(:,2))
+octave:4> xlabel ("Tiempo de Sesion [s]")
+octave:5> ylabel ("Retardo de Extremo a Extremo")
+octave:6> title ("Round Trip-Time 1.txt")
+octave:7> print -dpng "RTT1.png"
+
   
