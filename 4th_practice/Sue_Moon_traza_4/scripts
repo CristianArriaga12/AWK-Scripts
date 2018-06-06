@@ -30,7 +30,7 @@ awk '/D/ {print}' 3.txt > filtraD.txt
 4.  script  AWK  que  reciba  una  traza  como  entrada  y  entregue  un  archivo  con  dos  columnas:  
 tiempo en segundos, y retardo de extremo a extremo en segundos.
 
-  awk '{SessionT=($3-460510397)/8000}{$1=SessionT}{Delay=(($2-$3)-(-807010))/8000}{$2=Delay}{print $1,$2} END{}' 4.txt > SessionT.txt
+  awk '{SessionT=($3-460510397)/8000}{$1=SessionT}{Delay=(($2-$3)-(-807010))/8000}{$2=Delay}{print $1,$2} END{}' filtraD.txt > SessionT.txt
 
 ## Una vez que encontramos el valor minimo nos disponemos a calcular tiempo de session y el retraso de extremo a extremo y la
 ## guardamos en un archivo nuevo llamado SessionT.txt
@@ -47,8 +47,8 @@ octave:1> load SessionT.txt
 octave:2> plot (SessionT)
 octave:3> xlabel("Tiempo de Sesion [s]") 
 octave:4> ylabel("Retardo de Extremo a Extremo")
-octave:5> title("Round Trip-Time 3")
-octave:6> print -dpng "RTT2.png"
+octave:5> title("Round Trip-Time 4")
+octave:6> print -dpng "RTT4.png"
 
 
 octave:1> load zoom.txt 
@@ -56,6 +56,6 @@ octave:2> stem(zoom(:,1), zoom(:,2))
 octave:3> grid on
 octave:4> xlabel("Tiempo de Sesion [ms]")
 octave:5> ylabel("Retardo de Extremo a Extremo")
-octave:6> title("Roud Trip-Time 3 (3s)")
-octave:7> print -dpng "RTT_3_3.png"
+octave:6> title("Roud Trip-Time 4 (5s)")
+octave:7> print -dpng "RTT_4_3.png"
 
