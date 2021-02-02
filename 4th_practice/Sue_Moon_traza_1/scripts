@@ -44,7 +44,7 @@ tiempo  en  segundos,  y  retardo  de  extremo  a  extremo  en segundos.
 
 
 octave:1> load SessionT.txt 
-octave:2> plot(SessionT)
+octave:2> plot(SessionT(:,1), Session(:,2), '-r' , 'LineWidth',1)
 octave:3> xlabel("Tiempo de Sesion [s]") 
 octave:4> ylabel("Retardo de Extremo a Extremo")
 octave:5> title("Round Trip-Time 1")
